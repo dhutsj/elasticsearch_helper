@@ -112,7 +112,7 @@ if __name__ == '__main__':
         'global': {
             'environment': 'production',
             'log.screen': True,
-            'server.socket_host': '127.0.0.1',
+            'server.socket_host': '0.0.0.0',
             'server.socket_port': 8080,
             'engine.autoreload_on': True,
 
