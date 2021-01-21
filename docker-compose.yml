@@ -1,0 +1,7 @@
+version: "3"
+services:
+  es:
+    image: dhutsj/es_helper:latest 
+    container_name: es
+    ports:
+      - 8080:8080
