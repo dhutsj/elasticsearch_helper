@@ -1,21 +1,21 @@
 apiVersion: apps/v1
-    kind: Deployment
+kind: Deployment
+metadata:
+  name: es-helper-deployment
+  labels:
+    app: es-helper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: es-helper
+  template:
     metadata:
-      name: es-helper-deployment
       labels:
         app: es-helper
     spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: es-helper
-      template:
-        metadata:
-          labels:
-            app: es-helper
-        spec:
-          containers:
-          - name: es-helper
-            image: dhutsj/es_helper:latest
-            ports:
-            - containerPort: 8080
+      containers:
+      - name: es-helper
+        image: dhutsj/es_helper:latest
+        ports:
+        - containerPort: 8080
