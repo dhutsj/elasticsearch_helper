@@ -1,0 +1,17 @@
+name: k8s deploy app
+
+on:
+  push:
+    branches: main
+
+jobs:
+  main:
+    runs-on: [self-hosted, k8s]
+    steps:
+      - 
+        name: Deploy
+        run: |
+          echo "k8s deploy app"
+          kubectl apply -f deployment.yaml
+          kubectl apply -f service.yaml
+          kubectl apply -f ingress.yaml 
