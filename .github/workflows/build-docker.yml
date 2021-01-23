@@ -6,7 +6,7 @@ on:
 
 jobs:
   main:
-    runs-on: [self-hosted, my_ecs]
+    runs-on: [self-hosted]
     steps:
       -
         name: Set up QEMU
