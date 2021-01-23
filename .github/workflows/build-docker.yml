@@ -10,8 +10,11 @@ jobs:
     steps:
       -
         name: Login to DockerHub
+        env:
+          Username: ${{ secrets.dockerhub_username }}
+          Password: ${{ secrets.dockerhub_password }}
         run: |
-          docker login -u dhutsj -p DHUtsj1234
+          docker login -u "$Username" -p "$Password"
       -
         name: Build and push
         run: |
