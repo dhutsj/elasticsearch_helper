@@ -6,7 +6,7 @@ on:
 
 jobs:
   main:
-    runs-on: [self-hosted]
+    runs-on: [self-hosted, my_docker]
     steps:
       - 
         name: Login
