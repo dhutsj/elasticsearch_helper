@@ -11,7 +11,7 @@ jobs:
       -
         name: Login to DockerHub
         run: |
-          docker login -u ${{ secrets.dockerhub_username }} -p ${{ secrets.dockerhub_password }}
+          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       -
         name: Build and push
         run: |
