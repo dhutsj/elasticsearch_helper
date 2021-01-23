@@ -10,17 +10,13 @@ jobs:
     steps:
       -
         name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: dhutsj
-          password: DHUtsj1234
+        run: |
+          docker login -u dhutsj -p DHUtsj1234
       -
         name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          tags: dhutsj/es_helper:latest
+        run: |
+          docker build -t dhutsj/es_helper:latest .
+          docker push dhutsj/es_helper:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
