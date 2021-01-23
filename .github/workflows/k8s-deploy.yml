@@ -8,6 +8,8 @@ jobs:
   main:
     runs-on: [self-hosted, k8s]
     steps:
+      - uses: actions/checkout@v2
+        timeout-minutes: 15      
       - 
         name: Deploy
         run: |
