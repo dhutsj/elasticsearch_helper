@@ -9,8 +9,9 @@ jobs:
     runs-on: [self-hosted]
     steps:
       - 
-        shell: bash
+        name: My echo
         run: |
+          echo "Hello Docker"
           echo ${{ secrets.DOCKERHUB_USERNAME }}
           echo ${{ secrets.DOCKERHUB_PASSWORD }}
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
