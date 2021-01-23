@@ -12,6 +12,8 @@ jobs:
         name: Deploy
         run: |
           echo "k8s deploy app"
+          pwd
+          ls -l
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
           kubectl apply -f ingress.yaml 
