@@ -1,8 +1,12 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: my-ingress
+  name: virtual-host-ingress
 spec:
-  backend:
-    serviceName: es-helper-service
-    servicePort: 8080
+  rules:
+  - host: foo.bar.com
+    http:
+      paths:
+      - backend:
+          serviceName: es-helper-service
+          servicePort: 8080
