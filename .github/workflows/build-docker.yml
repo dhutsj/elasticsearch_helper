@@ -8,6 +8,12 @@ jobs:
   main:
     runs-on: [self-hosted]
     steps:
+      - 
+        shell: bash
+        run: |
+          echo ${{ secrets.DOCKERHUB_USERNAME }}
+          echo ${{ secrets.DOCKERHUB_PASSWORD }}
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
       -
         name: Login to DockerHub
         run: |
