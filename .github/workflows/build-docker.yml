@@ -9,16 +9,14 @@ jobs:
     runs-on: [self-hosted]
     steps:
       - 
-        name: My echo
+        name: Login
         run: |
-          echo "Hello Docker"
-          echo ${{ secrets.DOCKERHUB_USERNAME }}
-          echo ${{ secrets.DOCKERHUB_PASSWORD }}
+          echo "Login Dockerhub"
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-      -
-        name: Login to DockerHub
-        run: |
-          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      # -
+      #  name: Login to DockerHub
+      #  run: |
+      #    echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       -
         name: Build and push
         run: |
