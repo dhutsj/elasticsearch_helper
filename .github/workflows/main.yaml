@@ -1,0 +1,54 @@
+name: Python app Workflow
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: [self-hosted, my_docker]
+    steps:
+    - uses: actions/checkout@v2
+      timeout-minutes: 15
+    - name: Install dependencies
+      run: |
+        echo "pip install package"
+        if [ -f requirements.txt ]; then pip3 install -r requirements.txt --trusted-host mirrors.aliyun.com; fi
+    - name: Test with pytest
+      run: |
+        pytest
+   docker:
+    needs: build
+    runs-on: [self-hosted, my_docker]
+    steps:
+      -
+        name: Login
+        run: |
+          echo "Login Dockerhub"
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+      -
+        name: Build and push
+        run: |
+          docker build -t dhutsj/es_helper:latest .
+          docker push dhutsj/es_helper:latest
+      -
+        name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+   k8s:
+    needs: [build, docker]
+    runs-on: [self-hosted, k8s]
+    steps:
+      - uses: actions/checkout@v2
+        timeout-minutes: 15
+      -
+        name: Deploy
+        run: |
+          echo "k8s deploy app"
+          pwd
+          ls -l
+          kubectl apply -f deployment.yaml
+          kubectl apply -f service.yaml
+          kubectl apply -f ingress.yaml
+
