@@ -1,8 +1,6 @@
 name: Python app Workflow
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
     paths:
@@ -11,6 +9,7 @@ on:
 
 jobs:
   build:
+    if: github.event.pull_request.merged == true
     runs-on: [self-hosted, my_docker]
     steps:
     - uses: actions/checkout@v2
