@@ -18,7 +18,7 @@ elasticsearch-helper only supports Python3.7+
 
 3. Install the required python packages.
 
-   `pip install requirements.txt`
+   `pip install -r requirements.txt`
 
 4. Run python command.
 
