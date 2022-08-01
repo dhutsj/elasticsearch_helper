@@ -1,6 +1,11 @@
 pipeline{
     
     agent any
+
+    // agent{
+    //     label 'linux'
+    // }
+
     
     options{
         timestamps()
