@@ -1,4 +1,5 @@
 #  elasticsearch helper
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/dhutsj/elasticsearch_helper)
 
 ## 1. what is elasticsearch helper
 
