@@ -1,4 +1,5 @@
 #  elasticsearch helper
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/dhutsj/elasticsearch_helper)
 
 ## 1. what is elasticsearch helper
 
@@ -18,7 +19,7 @@ elasticsearch-helper only supports Python3.7+
 
 3. Install the required python packages.
 
-   `pip install requirements.txt`
+   `pip install -r requirements.txt`
 
 4. Run python command.
 
